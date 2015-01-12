@@ -125,6 +125,11 @@ sulu_media:
     format_manager:
         response_headers: %format_manager.response_headers%
 
+sulu_websocket:
+    server:
+        http_host: %websocket_url%
+        port: %websocket_port%
+
 cmf_core:
     publish_workflow:
         enabled: false
