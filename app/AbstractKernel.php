@@ -61,7 +61,7 @@ abstract class AbstractKernel extends SuluKernel
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'stage'))) {
             // symfony standard
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
@@ -69,6 +69,9 @@ abstract class AbstractKernel extends SuluKernel
 
             // debug enhancement
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+
+            // registration of this bundle enables access to Twig templates used in
+            // the system/Behat tests
             $bundles[] = new Sulu\Bundle\TestBundle\SuluTestBundle();
         }
 

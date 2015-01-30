@@ -1,7 +1,8 @@
 Listen 8080
 <VirtualHost *:8080>
 
-  SetEnv APP_ENV prod
+  # Use the stage environment instead of prod
+  SetEnv APP_ENV stage
   DocumentRoot %TRAVIS_BUILD_DIR%/web
 
   <Directory "%TRAVIS_BUILD_DIR%/web">
